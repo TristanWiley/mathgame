@@ -19,3 +19,6 @@ shell-server@0.2.3            # Server-side component of the `meteor shell` comm
 
 jagi:astronomy
 msavin:mongol
+mantarayar:shortid
+fourseven:scss
+materialize:materialize
