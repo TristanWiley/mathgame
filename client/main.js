@@ -1,14 +1,8 @@
 import { Template } from 'meteor/templating';
+import shortid from 'shortid36';
 
 import './main.html';
 
-Template.homePage.onCreated(function helloOnCreated() {
+Template.homePage.onCreated(function() {
+    console.log(shortid.generate());
 });
-
-// Template.hello.helpers({
-// });
-
-// Template.hello.events({
-//   'click button'(event, instance) {
-//   },
-// });

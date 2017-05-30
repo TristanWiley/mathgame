@@ -35,7 +35,6 @@ jquery@1.11.10
 launch-screen@1.1.1
 livedata@1.0.18
 logging@1.1.17
-mantarayar:shortid@0.1.1
 materialize:materialize@0.97.6
 mdg:validation-error@0.5.1
 meteor@1.6.1
