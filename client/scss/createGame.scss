@@ -1,0 +1,48 @@
+.createGame {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    * {
+        box-sizing: border-box;
+    }
+    img {
+        width: 100%;
+        height: auto;
+        vertical-align: middle;
+    }
+    /* flex layout*/
+    .fx-card {
+        background-color: #fff;
+        margin: 10px auto;
+        max-width: 1293px;
+    }
+    .fx-card__info {
+        padding: 20px;
+    }
+    .fx-card__title {
+        text-transform: uppercase;
+        font-size: 1.5em;
+        margin-top: 0;
+    }
+    @media (min-width: 600px) {
+        .fx-card__info {
+            padding: 0 20px;
+        }
+        .fx-card {
+            display: flex;
+        }
+        .fx-card__img {
+            order: 1;
+            flex: 0 0 400px;
+        }
+        .fx-card__info {
+            order: 0;
+            align-self: center;
+        }
+    }
+    @media(min-width: 800px) {
+        .fx-card__info {
+            padding: 0 40px;
+        }
+    }
+}
