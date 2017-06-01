@@ -26,5 +26,13 @@ Template.homePage.events({
         if (e.keyCode == 27) {
             $("div.mk-fullscreen-search-overlay").removeClass("mk-fullscreen-search-overlay-show");
         }
+    },
+    'submit #mk-fullscreen-searchform': function(e){
+        e.preventDefault();
+        var gameID = $('#mk-fullscreen-search-input').val();
+        Meteor.call('createGame', gameID, function(error, result){
+            Session.set("adminID", result);
+        });
+        FlowRouter.go('/game/' + gameID);
     }
 });
