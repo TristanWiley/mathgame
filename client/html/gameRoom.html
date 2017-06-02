@@ -4,6 +4,8 @@
         <div class="fx-card">
             <div class="fx-card__info">
             {{#if isFinished}}
+                <h1 class="fx-card__title">Game finished!</h1>
+                <p class="fx-card__text">The game has finished, and the winner was {{winner.name}}</p>
             {{else}}
                 {{#if inProgress}}
                     <div id="street">
