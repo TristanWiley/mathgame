@@ -34,5 +34,10 @@ Template.homePage.events({
             Session.set("adminID", result.admin);
             FlowRouter.go('/game/' + result.gameID);
         });
+    },
+    'submit #gameForm': function(e) {
+        e.preventDefault();
+        var gameID = $('#input-7').val();
+        FlowRouter.go('/game/' + gameID);
     }
 });
