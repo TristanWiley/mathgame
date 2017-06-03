@@ -12,7 +12,7 @@ import {Games} from '../../lib/models/Games.js'
 Template.gameRoom.helpers({
     currentGame: function(){
         var gameID = FlowRouter.getParam("gameID");
-        var game = Games.findOne({name: gameID});
+        var game = Games.findOne({gameID: gameID});
         return game;
     },
     questions: function() {

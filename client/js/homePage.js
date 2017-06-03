@@ -27,13 +27,13 @@ Template.homePage.events({
             $("div.mk-fullscreen-search-overlay").removeClass("mk-fullscreen-search-overlay-show");
         }
     },
-    'submit #mk-fullscreen-searchform': function(e){
+    'submit #mk-fullscreen-searchform': function(e) {
         e.preventDefault();
         var gameID = $('#mk-fullscreen-search-input').val();
-        Meteor.call('createGame', gameID, function(error, result){
-            Session.set("adminID", result);
+        Meteor.call('createGame', gameID, function(error, result) {
+            Session.set("adminID", result.admin);
+            FlowRouter.go('/game/' + result.gameID);
         });
-        FlowRouter.go('/game/' + gameID);
     },
     'submit #gameForm': function(e) {
         e.preventDefault();
