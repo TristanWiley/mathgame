@@ -14,5 +14,9 @@ Template.gameRoom.helpers({
         var gameID = FlowRouter.getParam("gameID");
         var game = Games.findOne({name: gameID});
         return game;
+    },
+    questions: function() {
+        //Returns an array of 
+        return [""]
     }
 });
