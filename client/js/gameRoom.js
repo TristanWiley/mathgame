@@ -15,6 +15,14 @@ Template.gameRoom.events({
     },
     'click .question': function(e) {
         Session.setPersistent("questionID", e.currentTarget.id)
+    },
+    'click #joinGame': function() {
+        Meteor.call('joinGame', FlowRouter.getParam("gameID"), $('#joinName').val(), function(error, result) {
+            Session.setPersistent("playerID", result)
+        });
+    },
+    'click #startGame': function() {
+        Meteor.call("startGame", FlowRouter.getParam("gameID"));
     }
 });
 
@@ -23,5 +31,8 @@ Template.gameRoom.helpers({
         var gameID = FlowRouter.getParam("gameID");
         var game = Games.findOne({ gameID: gameID });
         return game;
+    },
+    isPlayer: function() {
+        return Session.get("playerID");
     }
 });

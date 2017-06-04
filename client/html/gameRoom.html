@@ -1,51 +1,70 @@
 <template name="gameRoom">
-    {{#with currentGame}}
+    {{#if isPlayer}}
+        {{#with currentGame}}
+            <div class="gameRoom">
+                <div class="fx-card">
+                    <div class="fx-card__info">
+                        {{#if isFinished}}
+                            <h1 class="fx-card__title">Game finished!</h1>
+                            <p class="fx-card__text">The game has finished, and the winner was {{winner.name}}</p>
+                        {{else}}
+                            {{#if inProgress}}
+                                <div class="questions">
+                                    {{#each problems}}
+                                        {{#if isSolved @index}}<a data-toggle="modal" href="#myModal" id="{{@index}}" class="btn question">{{{html}}}</a>{{else}}<i class="fa fa-check fa-3x" aria-hidden="true"></i>
+                                        {{/if}}
+                                    {{/each}}
+                                </div>
+                                <div id="street">
+                                    <div id="car">
+                                        <div class="top"></div>
+                                        <div class="bottom"></div>
+                                    </div>
+                                </div>
+                            {{else}}
+                                <h1 class="fx-card__title">Waiting for Everyone to Join</h1>
+                                <p class="fx-card__text">While you wait, feel free to review derivative problems, or change your car style.</p>
+                                {{#if isAdmin}}<a id="startGame" class="btn">Start Game</a>{{/if}}
+                            {{/if}}
+                        {{/if}}
+                    </div>
+                    <div class="fx-card__img">
+                        {{>SimpleChatWindow roomId=chatID username=getPlayerName}}
+                    </div>
+                </div>
+            </div>
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">What's your answer?</h4>
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" id="answerinput" name="answer">
+                            <h3 id="mathhere"></h3>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" id="checkAnswer" class="btn btn-default">Check</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/with}}
+    {{else}}
         <div class="gameRoom">
             <div class="fx-card">
                 <div class="fx-card__info">
-                    {{#if isFinished}}
-                        <h1 class="fx-card__title">Game finished!</h1>
-                        <p class="fx-card__text">The game has finished, and the winner was {{winner.name}}</p>
-                    {{else}}
-                        {{#if inProgress}}
-                            <div class="questions">
-                                {{#each problems}}{{#if isSolved @index}}<a data-toggle="modal" href="#myModal" id="{{@index}}" class="btn question">{{{html}}}</a>{{/if}}{{/each}}
-                            </div>
-                            <div id="street">
-                                <div id="car">
-                                    <div class="top"></div>
-                                    <div class="bottom"></div>
-                                </div>
-                            </div>
-                        {{else}}
-                            <h1 class="fx-card__title">Waiting for Everyone to Join</h1>
-                            <p class="fx-card__text">While you wait, feel free to review derivative problems, or change your car style.</p>
-                        {{/if}}
-                    {{/if}}
-                </div>
-                <div class="fx-card__img">
-                    {{>SimpleChatWindow roomId=chatID username="Tristan"}}
-                </div>
-            </div>
-        </div>
-        <div id="myModal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">What's your answer?</h4>
-                    </div>
-                    <div class="modal-body">
-                        <input type="text" id="answerinput" name="answer">
-                        <h3 id="mathhere"></h3>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" id="checkAnswer" class="btn btn-default">Check</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <div class="join-game">
+                        <h1 class="fx-card__title">Welcome! Join this game <i class="fa fa-smile-o" aria-hidden="true"></i></h1>
+                        <p class="fx-card__text">What's your name?</p>
+                        <input id="joinName" type="text" name="playerName">
+                        <a id="joinGame" class="btn">Start Game</a>
                     </div>
                 </div>
             </div>
         </div>
-    {{/with}}
+    {{/if}}
 </template>
