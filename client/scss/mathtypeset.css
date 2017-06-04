@@ -1,0 +1,89 @@
+.base {
+  font-family: Times, serif;
+  font-size: 14pt;
+  vertical-align: baseline;
+  }
+.sup {
+  font-family: Times, serif;
+  font-size: 11pt;
+  vertical-align: 40%;
+  }
+.supsup {
+  font-family: Times, serif;
+  font-size: 9pt;
+  vertical-align: 60%;
+  }
+.supsupsup {
+  font-family: Times, serif;
+  font-size: 9pt;
+  vertical-align: 80%;
+  }
+  
+.filler {
+  color: white;
+  font-size: 11pt;
+  vertical-align: 40%;
+  }
+
+table.rational {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0px;
+  text-align: center;
+  display: inline;
+  vertical-align: -130%;
+  margin: 1px 1px;
+  /* altered for Safari and Opera */
+}
+
+td.num {
+  border-style: none none solid none;
+  border-color: black;
+  border-width: thin;
+}  
+td.denom {
+  border-style: solid none none none;
+  border-color: black;
+  border-width: thin;
+}  
+
+table.radical {
+  float: none;
+  border: none;
+  border-collapse: separate;
+  border-spacing: 0px;
+  text-align: center;
+  display: inline;
+  vertical-align: -25%;
+  margin: 0px;
+}
+td.radical {
+  border-style: solid none none none;
+  border-color: black;
+  border-width: thin;
+  }
+td.rad {
+  border: none;
+  vertical-align: bottom;
+  text-align: right;
+  }
+img.scaled {
+  height: 100%; 
+/*  width: 100%; */
+}
+div.rad {
+  border: none;
+  margin: 0;
+  padding: 0;
+  vertical-align: bottom;
+}
+.radix-small {
+  position: relative;
+  left: 8px;
+  bottom: 7px;
+}
+.radix-large {
+  position: relative;
+  left: 15px;
+  bottom: 2px;
+}

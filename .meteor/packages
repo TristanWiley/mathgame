@@ -27,4 +27,5 @@ kadira:blaze-layout
 fortawesome:fontawesome
 cesarve:simple-chat
 dynamic-import@0.1.0
-ecwyne:mathjs
+simple:katex
+u2622:persistent-session

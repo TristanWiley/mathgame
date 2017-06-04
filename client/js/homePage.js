@@ -31,7 +31,7 @@ Template.homePage.events({
         e.preventDefault();
         var gameID = $('#mk-fullscreen-search-input').val();
         Meteor.call('createGame', gameID, function(error, result) {
-            Session.set("adminID", result.admin);
+            Session.setPersistent("playerID", result.playerID)
             FlowRouter.go('/game/' + result.gameID);
         });
     },
