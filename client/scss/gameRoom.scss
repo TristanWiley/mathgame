@@ -71,8 +71,27 @@
     #car {
         position: absolute;
         top: 30%;
-        left: 30px;
+        left: 5px;
     }
+    .car0{
+        left: 1% !important;
+    }
+    .car1{
+        left: 18% !important;
+    }
+    .car2{
+        left: 36% !important;
+    }
+    .car3{
+        left: 54% !important;
+    }
+    .car4{
+        left: 72% !important;
+    }
+    .car5{
+        left: 90% !important;
+    }
+
     #car .top {
         position: absolute;
         width: 50px;

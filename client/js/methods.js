@@ -9,3 +9,7 @@ Template.registerHelper("isAdmin", function(param1, options) {
 Template.registerHelper("getPlayerName", function(param1, options) {
     return Meteor.apply('playerName', [FlowRouter.getParam("gameID"), Session.get("playerID")], { returnStubValue: true });
 });
+
+Template.registerHelper("countComplete", function(param1, options) {
+    return Meteor.apply('countComplete', [FlowRouter.getParam("gameID"), Session.get("playerID")], { returnStubValue: true });
+});
