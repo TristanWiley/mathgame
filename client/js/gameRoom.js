@@ -5,7 +5,14 @@ Template.gameRoom.events({
         katex.render(e.currentTarget.value, document.getElementById("mathhere"));
     },
     'click #checkAnswer': function(e) {
-        Meteor.call("checkAnswer", Session.get("playerID"), FlowRouter.getParam("gameID"), Session.get("questionID"), $('#answerinput').val())
+        Meteor.call("checkAnswer", Session.get("playerID"), FlowRouter.getParam("gameID"), Session.get("questionID"), $('#answerinput').val(), function(error, result) {
+            if (result) {
+                Toast.info("Correct!");
+                $('#myModal').modal('toggle');
+            } else {
+                Toast.info("Wrong, silly");
+            }
+        })
     },
     'click .question': function(e) {
         Session.setPersistent("questionID", e.currentTarget.id)

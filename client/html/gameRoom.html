@@ -58,10 +58,14 @@
             <div class="fx-card">
                 <div class="fx-card__info">
                     <div class="join-game">
-                        <h1 class="fx-card__title">Welcome! Join this game <i class="fa fa-smile-o" aria-hidden="true"></i></h1>
-                        <p class="fx-card__text">What's your name?</p>
-                        <input id="joinName" type="text" name="playerName">
-                        <a id="joinGame" class="btn">Start Game</a>
+                        {{#if inProgress}}
+                            <h1 class="fx-card__title">Game is already in progress <i class="fa fa-smile-o" aria-hidden="true"></i></h1>
+                        {{else}}
+                            <h1 class="fx-card__title">Welcome! Join this game <i class="fa fa-smile-o" aria-hidden="true"></i></h1>
+                            <p class="fx-card__text">What's your name?</p>
+                            <input id="joinName" type="text" name="playerName">
+                            <a id="joinGame" class="btn">Start Game</a>
+                        {{/if}}
                     </div>
                 </div>
             </div>

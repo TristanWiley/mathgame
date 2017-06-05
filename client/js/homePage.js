@@ -1,4 +1,4 @@
-// import shortid from 'shortid32';
+import { Game } from '../../lib/models/Games.js';
 
 Template.homePage.onRendered(function() {
     // console.log(shortid.generate());
@@ -39,6 +39,8 @@ Template.homePage.events({
     'submit #gameForm': function(e) {
         e.preventDefault();
         var gameID = $('#input-7').val();
-        FlowRouter.go('/game/' + gameID);
+        if (Game.findOne({ gameID: gameID })) {
+            FlowRouter.go('/game/' + gameID);
+        }
     }
 });
