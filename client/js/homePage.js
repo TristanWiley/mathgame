@@ -40,6 +40,7 @@ Template.homePage.events({
         e.preventDefault();
         var gameID = $('#input-7').val();
         if (Game.findOne({ gameID: gameID })) {
+            Session.clear("playerID");
             FlowRouter.go('/game/' + gameID);
         }
     }
