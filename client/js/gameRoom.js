@@ -31,6 +31,10 @@ Template.gameRoom.helpers({
     currentGame: function() {
         var gameID = FlowRouter.getParam("gameID");
         var game = Game.findOne({ gameID: gameID });
+        if(!game){
+            FlowRouter.go('/');
+            return;
+        }
         return game;
     },
     isPlayer: function() {
