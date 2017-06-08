@@ -8,6 +8,8 @@ Template.gameRoom.events({
         Meteor.call("checkAnswer", Session.get("playerID"), FlowRouter.getParam("gameID"), Session.get("questionID"), $('#answerinput').val(), function(error, result) {
             if (result) {
                 Toast.info("Correct!");
+                $("#answerinput").val("");
+                katex.render(e.currentTarget.value, document.getElementById("mathhere"));
                 $('#myModal').modal('toggle');
             } else {
                 Toast.info("Wrong, silly");
@@ -31,7 +33,7 @@ Template.gameRoom.helpers({
     currentGame: function() {
         var gameID = FlowRouter.getParam("gameID");
         var game = Game.findOne({ gameID: gameID });
-        if(!game){
+        if (!game) {
             FlowRouter.go('/');
             return;
         }
